@@ -26,4 +26,9 @@
     <listener>
         <listener-class>org.zkoss.zk.au.http.DHtmlUpdateServlet</listener-class>
     </listener>
+    <welcome-file-list>
+        <welcome-file>AddressForm.zul</welcome-file>
+        <welcome-file>BranchForm.zul</welcome-file>
+        <welcome-file>CompanyForm.zul</welcome-file>
+    </welcome-file-list>
 </web-app>
