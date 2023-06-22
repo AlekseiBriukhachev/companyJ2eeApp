@@ -35,10 +35,7 @@ dependencies {
     implementation ("org.zkoss.zk:zkbind:9.6.0")
 //    implementation ("org.zkoss.zk:zkex:9.6.0")
 //    implementation ("org.zkoss.zk:zkmax:9.6.0")   /*ZK EE*/
-//    implementation ("org.zkoss.zk:zuti:9.6.0")    /*optional enable for shadow elements support */
-//	implementation "org.zkoss.zk:zhtml:${zkVersion}"   /*optional enable for xhtml component support */
 	implementation ("org.zkoss.zk:zkplus:9.6.0")  /*optional enable for 3rd party framework integration support */
-//	implementation "org.zkoss.zk:za11y:${zkVersion}"   /*optional enable for accessibility features */
     compileOnly ("org.projectlombok:lombok:1.18.24")
     implementation("mysql:mysql-connector-java:8.0.15")
 

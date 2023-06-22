@@ -8,8 +8,10 @@ import org.zkoss.bind.annotation.NotifyChange;
 
 import javax.ejb.EJB;
 import javax.ejb.Init;
+import javax.inject.Named;
 import java.util.List;
 
+@Named
 public class BranchViewModel {
     @EJB
     private BranchBeans branchBeans;
@@ -26,7 +28,7 @@ public class BranchViewModel {
     }
 
     @Command
-    @NotifyChange("saveBranch")
+    @NotifyChange("branches")
     public void createBranch() {
         Branch newBranch = new Branch();
         branchBeans.createBranch(newBranch);
@@ -34,13 +36,13 @@ public class BranchViewModel {
     }
 
     @Command
-    @NotifyChange("editBranches")
+    @NotifyChange("branches")
     public void editBranch(@BindingParam("branch") Branch branch) {
         branchBeans.updateBranch(branch);
     }
 
     @Command
-    @NotifyChange("deleteBranches")
+    @NotifyChange("branches")
     public void deleteBranch(@BindingParam("branch") Branch branch) {
         branchBeans.deleteBranch(branch);
         branches.remove(branch);

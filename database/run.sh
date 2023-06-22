@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 docker stop company_db
 docker rm company_db
 

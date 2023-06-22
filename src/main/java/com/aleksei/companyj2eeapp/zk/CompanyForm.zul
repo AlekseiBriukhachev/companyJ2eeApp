@@ -1,5 +1,5 @@
 <zk>
-  <window viewModel="@id('vm') @init('com.aleksei.companyj2eeapp.vm.CompaniesViewModel)">
+  <window viewModel="@id('vm') @init('com.aleksei.companyj2eeapp.vm.CompaniesViewModel">
     <textbox value="@bind(vm.companyName)" />
     <combobox model="@load(vm.addressList)" selectedItem="@bind(vm.selectedAddress)" />
     <listbox model="@load(vm.branchList)" multiple="@load(vm.selectedBranches)">

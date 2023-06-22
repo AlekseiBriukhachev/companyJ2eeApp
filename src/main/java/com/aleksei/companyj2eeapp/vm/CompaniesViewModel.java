@@ -10,9 +10,11 @@ import org.zkoss.zk.ui.select.SelectorComposer;
 
 import javax.ejb.EJB;
 import javax.ejb.Init;
+import javax.inject.Named;
 import java.util.List;
 
-public class CompaniesViewModel extends SelectorComposer<Component> {
+@Named
+public class CompaniesViewModel {
     @EJB
     private CompanyBeans companyBeans;
 
@@ -28,7 +30,7 @@ public class CompaniesViewModel extends SelectorComposer<Component> {
     }
 
     @Command
-    @NotifyChange("saveCompany")
+    @NotifyChange("companies")
     public void createCompany() {
         Company newCompany = new Company();
         companyBeans.createCompany(newCompany);
@@ -36,13 +38,13 @@ public class CompaniesViewModel extends SelectorComposer<Component> {
     }
 
     @Command
-    @NotifyChange("editCompany")
+    @NotifyChange("companies")
     public void editCompany(@BindingParam("company") Company company) {
         companyBeans.updateCompany(company);
     }
 
     @Command
-    @NotifyChange("deleteCompany")
+    @NotifyChange("companies")
     public void deleteCompany(@BindingParam("company") Company company) {
         companyBeans.deleteCompany(company);
         companies.remove(company);

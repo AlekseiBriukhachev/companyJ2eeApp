@@ -5,16 +5,14 @@ import com.aleksei.companyj2eeapp.entities.Address;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.NotifyChange;
-import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.select.SelectorComposer;
 
 import javax.ejb.EJB;
 import javax.ejb.Init;
-import javax.servlet.annotation.WebServlet;
+import javax.inject.Named;
 import java.util.List;
 
-@WebServlet("/address")
-public class AddressViewModel extends SelectorComposer<Component> {
+@Named
+public class AddressViewModel {
     @EJB
     private AddressBeans addressBeans;
 
@@ -29,8 +27,8 @@ public class AddressViewModel extends SelectorComposer<Component> {
         return addresses;
     }
 
-    @Command
-    @NotifyChange("saveAddress")
+    @Command(value = "saveAddress")
+    @NotifyChange("addresses")
     public void createAddress() {
         Address newAddress = new Address();
         addressBeans.createAddress(newAddress);
@@ -38,13 +36,13 @@ public class AddressViewModel extends SelectorComposer<Component> {
     }
 
     @Command
-    @NotifyChange("editAddresses")
+    @NotifyChange("addresses")
     public void editAddresses(@BindingParam("address") Address address) {
         addressBeans.updateAddress(address);
     }
 
     @Command
-    @NotifyChange("deleteAddresses")
+    @NotifyChange("addresses")
     public void deleteAddress(@BindingParam("address") Address address) {
         addressBeans.deleteAddress(address);
         addresses.remove(address);
