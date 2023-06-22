@@ -10,6 +10,7 @@ import org.zkoss.zk.ui.select.SelectorComposer;
 
 import javax.ejb.EJB;
 import javax.ejb.Init;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
 

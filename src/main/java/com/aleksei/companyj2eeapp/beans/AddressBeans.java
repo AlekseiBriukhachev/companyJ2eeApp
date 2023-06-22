@@ -4,12 +4,14 @@ package com.aleksei.companyj2eeapp.beans;
 import com.aleksei.companyj2eeapp.entities.Address;
 
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Alternative;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
 
 @Stateless
+@Alternative
 public class AddressBeans {
     @PersistenceContext(name = "CompanyPersistence")
     private EntityManager entityManager;
