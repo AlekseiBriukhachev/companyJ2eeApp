@@ -1,0 +1,12 @@
+<zk>
+    <window viewModel="@id('vm') @init('com.aleksei.companyj2eeapp.vm.AddressViewModel">
+        <textbox value="@bind(vm.postalCode)" />
+        <textbox value="@bind(vm.city)" />
+        <textbox value="@bind(vm.street)" />
+        <textbox value="@bind(vm.house)" />
+        <textbox value="@bind(vm.apartment)" />
+        <button label="Save" onClick="@command('saveAddress')" />
+        <button label="Edit" onClick="@command('editAddresses')"/>
+        <button label="Delete" onClick="@command('deleteAddresses')"/>
+    </window>
+</zk>

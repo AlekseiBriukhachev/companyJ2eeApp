@@ -1,0 +1,12 @@
+<zk>
+  <window viewModel="@id('vm') @init('com.aleksei.companyj2eeapp.vm.CompaniesViewModel)">
+    <textbox value="@bind(vm.companyName)" />
+    <combobox model="@load(vm.addressList)" selectedItem="@bind(vm.selectedAddress)" />
+    <listbox model="@load(vm.branchList)" multiple="@load(vm.selectedBranches)">
+      <listitem self="@template('model')" label="@load(each.name)" />
+    </listbox>
+    <button label="Save" onClick="@command('saveCompany')" />
+    <button label="Edit" onClick="@command('editCompany')"/>
+    <button label="Delete" onClick="@command('deleteCompany')"/>
+  </window>
+</zk>

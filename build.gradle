@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'ear'
+}
+
+group 'com.aleksei'
+version '1.0'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+ext {
+    junitVersion = '5.9.2'
+}
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    compileOnly('jakarta.platform:jakarta.jakartaee-web-api:9.1.0')
+    implementation('org.hibernate:hibernate-core:6.0.2.Final')
+    implementation('org.glassfish.jaxb:jaxb-runtime:3.0.2')
+    implementation('org.hibernate.validator:hibernate-validator:7.0.5.Final')
+    compileOnly ("javax:javaee-api:7.0")
+    compileOnly ("org.wildfly:wildfly-ejb-client-bom:24.0.1.Final")
+    implementation ("org.zkoss.common:zcommon:")
+    implementation ("org.zkoss.zk:zk:9.6.0")
+    implementation ("org.zkoss.zk:zkbind:9.6.0")
+//    implementation ("org.zkoss.zk:zkex:9.6.0")
+//    implementation ("org.zkoss.zk:zkmax:9.6.0")   /*ZK EE*/
+//    implementation ("org.zkoss.zk:zuti:9.6.0")    /*optional enable for shadow elements support */
+//	implementation "org.zkoss.zk:zhtml:${zkVersion}"   /*optional enable for xhtml component support */
+	implementation ("org.zkoss.zk:zkplus:9.6.0")  /*optional enable for 3rd party framework integration support */
+//	implementation "org.zkoss.zk:za11y:${zkVersion}"   /*optional enable for accessibility features */
+    compileOnly ("org.projectlombok:lombok:1.18.24")
+    implementation("mysql:mysql-connector-java:8.0.15")
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
