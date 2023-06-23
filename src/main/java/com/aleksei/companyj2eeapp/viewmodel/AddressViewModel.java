@@ -8,12 +8,13 @@ import org.zkoss.bind.annotation.NotifyChange;
 
 import javax.ejb.EJB;
 import javax.ejb.Init;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
 
 @Named
 public class AddressViewModel {
-    @EJB
+    @Inject
     private AddressBeans addressBeans;
 
     private List<Address> addresses;
@@ -35,13 +36,13 @@ public class AddressViewModel {
         addresses.add(newAddress);
     }
 
-    @Command
+    @Command(value = "editAddresses")
     @NotifyChange("addresses")
     public void editAddresses(@BindingParam("address") Address address) {
         addressBeans.updateAddress(address);
     }
 
-    @Command
+    @Command(value = "deleteAddresses")
     @NotifyChange("addresses")
     public void deleteAddress(@BindingParam("address") Address address) {
         addressBeans.deleteAddress(address);

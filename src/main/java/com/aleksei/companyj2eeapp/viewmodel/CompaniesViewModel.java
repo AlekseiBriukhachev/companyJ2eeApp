@@ -8,12 +8,13 @@ import org.zkoss.bind.annotation.NotifyChange;
 
 import javax.ejb.EJB;
 import javax.ejb.Init;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
 
 @Named
 public class CompaniesViewModel {
-    @EJB
+    @Inject
     private CompanyBeans companyBeans;
 
     private List<Company> companies;
@@ -27,7 +28,7 @@ public class CompaniesViewModel {
         return companies;
     }
 
-    @Command
+    @Command(value = "saveCompany")
     @NotifyChange("companies")
     public void createCompany() {
         Company newCompany = new Company();
@@ -35,13 +36,13 @@ public class CompaniesViewModel {
         companies.add(newCompany);
     }
 
-    @Command
+    @Command(value = "editCompany")
     @NotifyChange("companies")
     public void editCompany(@BindingParam("company") Company company) {
         companyBeans.updateCompany(company);
     }
 
-    @Command
+    @Command(value = "deleteCompany")
     @NotifyChange("companies")
     public void deleteCompany(@BindingParam("company") Company company) {
         companyBeans.deleteCompany(company);

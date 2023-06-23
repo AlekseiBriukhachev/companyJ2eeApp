@@ -48,6 +48,10 @@ war {
                 'Implementation-Version': version,
                 'Built-By': System.getProperty('user.name')
     }
+
+    from('lib/*') {
+        include('*.jar')
+    }
 }
 ear {
     manifest {
