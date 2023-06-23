@@ -1,16 +1,13 @@
-package com.aleksei.companyj2eeapp.vm;
+package com.aleksei.companyj2eeapp.viewmodel;
 
 import com.aleksei.companyj2eeapp.beans.CompanyBeans;
 import com.aleksei.companyj2eeapp.entities.Company;
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.NotifyChange;
-import org.zkoss.zk.ui.Component;
-import org.zkoss.zk.ui.select.SelectorComposer;
 
 import javax.ejb.EJB;
 import javax.ejb.Init;
-import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
 

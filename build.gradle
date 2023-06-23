@@ -24,7 +24,8 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
-    compileOnly('jakarta.platform:jakarta.jakartaee-web-api:9.1.0')
+    compileOnly('javax.enterprise:cdi-api:2.0.SP1')
+    compileOnly ('javax.ejb:javax.ejb-api:3.2.2')
     implementation('org.hibernate:hibernate-core:6.0.2.Final')
     implementation('org.glassfish.jaxb:jaxb-runtime:3.0.2')
     implementation('org.hibernate.validator:hibernate-validator:7.0.5.Final')
@@ -33,13 +34,30 @@ dependencies {
     implementation ("org.zkoss.common:zcommon:")
     implementation ("org.zkoss.zk:zk:9.6.0")
     implementation ("org.zkoss.zk:zkbind:9.6.0")
-//    implementation ("org.zkoss.zk:zkex:9.6.0")
-//    implementation ("org.zkoss.zk:zkmax:9.6.0")   /*ZK EE*/
+    implementation ("org.zkoss.zk:zkex:3.0.8")
+    implementation ("org.zkoss.zk:zkmax:3.0.8")   /*ZK EE*/
 	implementation ("org.zkoss.zk:zkplus:9.6.0")  /*optional enable for 3rd party framework integration support */
     compileOnly ("org.projectlombok:lombok:1.18.24")
     implementation("mysql:mysql-connector-java:8.0.15")
 
 
+}
+war {
+    manifest {
+        attributes 'Implementation-Title': 'CompanyTask',
+                'Implementation-Version': version,
+                'Built-By': System.getProperty('user.name')
+    }
+}
+ear {
+    manifest {
+        attributes 'Implementation-Title': 'CompanyTestEar',
+                'Implementation-Version': version,
+                'Built-By': System.getProperty('user.name')
+    }
+    from('build/libs') {
+        include('*.war', '*.jar')
+    }
 }
 
 test {

@@ -1,4 +1,4 @@
-package com.aleksei.companyj2eeapp.vm;
+package com.aleksei.companyj2eeapp.viewmodel;
 
 import com.aleksei.companyj2eeapp.beans.AddressBeans;
 import com.aleksei.companyj2eeapp.entities.Address;
@@ -8,7 +8,6 @@ import org.zkoss.bind.annotation.NotifyChange;
 
 import javax.ejb.EJB;
 import javax.ejb.Init;
-import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
 
